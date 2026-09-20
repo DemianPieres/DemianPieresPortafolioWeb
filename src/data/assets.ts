@@ -1,0 +1,28 @@
+import portrait from "../../UXui/Fotofondoinicio.png";
+import linux from "../../UXui/linux.png";
+import gsap from "../../UXui/Gasp.png";
+import reactNative from "../../UXui/React.png";
+import redux from "../../UXui/Vector.png";
+import aws from "../../UXui/awslogo.png";
+import c from "../../UXui/c-original.png";
+import cpp from "../../UXui/cplusplus.png";
+import docker from "../../UXui/docker-plain.png";
+import express from "../../UXui/express-original-wordmark.png";
+import figma from "../../UXui/figma-original.png";
+import git from "../../UXui/git-plain.png";
+import github from "../../UXui/github-original.png";
+import html from "../../UXui/html5-plain.png";
+import javascript from "../../UXui/javascript-plain.png";
+import mongodb from "../../UXui/mongodb-plain-wordmark.png";
+import mysql from "../../UXui/mysql-plain-wordmark.png";
+import nextjs from "../../UXui/nextjs-original.png";
+import nodejs from "../../UXui/nodejs-plain-wordmark.png";
+import postgresql from "../../UXui/postgresql-plain.png";
+import python from "../../UXui/python-original.png";
+import react from "../../UXui/react-original.png";
+import tailwind from "../../UXui/tailwindcss-plain.png";
+import typescript from "../../UXui/typescript-plain.png";
+import vercel from "../../UXui/vercel 1.png";
+
+export const assets = { portrait, linux, gsap, reactNative, redux, aws, c, cpp, docker, express, figma, git, github, html, javascript, mongodb, mysql, nextjs, nodejs, postgresql, python, react, tailwind, typescript, vercel } as const;
+export type AssetKey = keyof typeof assets;
