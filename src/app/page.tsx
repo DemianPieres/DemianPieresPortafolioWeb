@@ -2,19 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { assets } from "@/data/assets";
-import { profile } from "@/data/profile";
 import { Container } from "@/components/container";
 import { PageShell } from "@/components/page-shell";
-import { PhasePlaceholder } from "@/components/phase-placeholder";
+import { HomeMotion } from "@/components/home/home-motion";
+import { FeaturedProjects } from "@/components/home/featured-projects";
+import { ThemeToggle } from "@/components/home/theme-toggle";
+import { ParticleName } from "@/components/home/particle-name";
+import "./home.css";
 
 export default function Home() {
   return (
-    <PageShell portrait header={<Image className="portrait" src={assets.portrait} alt="Retrato de Demian Pieres en blanco y negro" sizes="(max-width: 767px) 1300px, 100vw" preload />}>
-      <Container className="intro">
-        <div><p className="eyebrow">Portfolio personal</p><h1>Me llamo {profile.name}.<br />{profile.role}.</h1></div>
-        <div className="intro-aside"><p>{profile.shortBio}</p><Link href="/about" className="text-link">Más sobre mí <ArrowUpRight aria-hidden="true" size={22} /></Link></div>
-      </Container>
-      <PhasePlaceholder phase="Fase 2">Inicio en construcción. La selección de proyectos y la composición completa de esta página se incorporarán en la siguiente fase.</PhasePlaceholder>
-    </PageShell>
+    <HomeMotion>
+      <PageShell portrait header={<><div className="home-portrait-frame"><Image className="portrait" src={assets.portrait} alt="Retrato de Demian Pieres en blanco y negro" sizes="(max-width: 767px) 1300px, 100vw" preload /></div><ParticleName /><ThemeToggle /></>}>
+        <Container className="home-intro">
+          <h1 data-home-reveal>Hola, soy Demian Pieres, tengo 22 años y soy Desarrollador de Software, graduado del Instituto Santo Domingo de Córdoba Capital.<br /> Vivo en Córdoba Capital y actualmente me dedico al desarrollo de software a medida, creando soluciones adaptadas a las necesidades de cada proyecto. Además, trabajo como Soporte IT en AMX Argentina, combinando desarrollo y tecnología en mi experiencia profesional. </h1>
+          <div className="home-intro-aside">
+            <p>Me apasiona el mundo de la tecnología y transformar ideas en soluciones eficientes y automatizadas. Actualmente contengo un enfoque sobre Growth Hacking y todo lo que tenga que ver con Automatización de Marketing con el fin de aumentar trafico o ventas de una entidad</p>
+            <Link href="/about" className="text-link">Más sobre mí <ArrowUpRight className="home-arrow" aria-hidden="true" /></Link>
+          </div>
+        </Container>
+        <FeaturedProjects />
+      </PageShell>
+    </HomeMotion>
   );
 }

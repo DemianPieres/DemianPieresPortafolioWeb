@@ -33,7 +33,18 @@ En dispositivos móviles de bajo rendimiento, degradar la intensidad o desactiva
 - Iconos con pequeñas respuestas de hover.
 - En touch no depender de hover.
 
+### Selector de tema de Inicio
+- Botón superior con giro/escala del icono y onda circular GSAP de 0.55 s; los colores cambian mediante transición CSS de 0.4 s.
+- Interrumpible ante clics sucesivos, con cleanup al desmontar. Al activar movimiento reducido se cancelan los tweens y el cambio de paleta es inmediato.
+
+### Nombre de partículas en Inicio
+- `ParticleText` JS-CSS de React Bits, solicitado expresamente: canvas 2D con su propio renderizador local. GSAP sigue controlando el resto del sitio.
+- `DemianPieres.Dev` alineado a la izquierda del selector. Entrada y reagrupación de 1600 ms con stagger de 420 ms, scatter de 190, repulsión de 42 y radio de 120; se repite con hover.
+- Se conserva el estilo punteado con partículas de 2.2 y densidad 4 en desktop. Hasta 1100 px se usan 1.2 y 2 para mantener letras pequeñas legibles. El font-size solicitado se ajusta automáticamente al ancho disponible.
+- Canvas pausado fuera del viewport y en pestaña oculta. Con movimiento reducido se dibuja una sola imagen estática; sin JavaScript o sin canvas se conserva un texto HTML visible. El área de interacción permite scroll vertical táctil.
+
 ### Texto
+- Inicio: efecto de referencia “Blurry Text Scroll” de 2K-Aakaash en presentación, título de trabajos, contacto y frase del cierre. GSAP/ScrollTrigger sincroniza `y: 50→0` y `blur: 10→0px` con el primer 20% del recorrido por el viewport; reversible al subir, con suavizado `scrub: 0.7`. El blur queda limitado a esos bloques y se elimina con movimiento reducido.
 - Revelados por línea/palabra solo en encabezados importantes.
 - Stagger breve.
 - No animar cada párrafo del sitio.

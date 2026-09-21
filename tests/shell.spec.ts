@@ -22,6 +22,15 @@ for (const width of [375, 390, 768, 1024, 1440]) {
         expect(box?.height).toBeGreaterThanOrEqual(44);
       }
       await page.evaluate(() => document.fonts.ready);
+      if (route === "/") {
+        // Una captura fullPage no activa los reveals fuera del viewport.
+        for (const card of await page.locator(".project-card").all()) {
+          await card.scrollIntoViewIfNeeded();
+          await expect(card).toHaveCSS("opacity", "1");
+        }
+        await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+        await expect(page.locator(".portrait")).toHaveCSS("transform", "none");
+      }
       await page.screenshot({ path: `artifacts/screenshots/${route === "/" ? "home" : route.slice(1)}-${width}.png`, fullPage: true });
     }
     expect(errors).toEqual([]);
