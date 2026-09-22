@@ -33,9 +33,12 @@ En dispositivos móviles de bajo rendimiento, degradar la intensidad o desactiva
 - Iconos con pequeñas respuestas de hover.
 - En touch no depender de hover.
 
-### Selector de tema de Inicio
-- Botón superior con giro/escala del icono y onda circular GSAP de 0.55 s; los colores cambian mediante transición CSS de 0.4 s.
-- Interrumpible ante clics sucesivos, con cleanup al desmontar. Al activar movimiento reducido se cancelan los tweens y el cambio de paleta es inmediato.
+### Selector de tema global / Pixel Swap
+- Botón superior en todas las rutas (incluido 404), con giro/escala del icono y onda circular GSAP de 0.55 s.
+- PixelSwap JS-CSS de React Bits instalado desde el registro y adaptado a una transición global: conserva cuadrícula, orden aleatorio y easing; GSAP actualiza una máscara SVG sobre la captura entrante de View Transitions. No se clona el árbol de componentes por píxel.
+- Duración 1400 ms, apertura individual 450 ms, escala inicial 0.35 y fade; cuadrados de 64 px que crecen si se supera el límite de 220. Sin separación, giro ni redondeo.
+- Clics sucesivos conservan la última intención. Resize, scroll, cambio de ruta, pestaña oculta o movimiento reducido cancelan la animación y limpian máscara/tweens.
+- Con movimiento reducido o API no disponible/fallida, cambio inmediato. Sin dependencias nuevas. La versión local tiene una API de controlador global, no el contenedor firstContent/secondContent del original; no sobrescribir desde el registro sin preservar la adaptación.
 
 ### Nombre de partículas en Inicio
 - `ParticleText` JS-CSS de React Bits, solicitado expresamente: canvas 2D con su propio renderizador local. GSAP sigue controlando el resto del sitio.
@@ -83,3 +86,8 @@ En dispositivos móviles de bajo rendimiento, degradar la intensidad o desactiva
 
 ## Criterio final
 Si una animación llama más la atención que el contenido durante demasiado tiempo, probablemente está sobrediseñada.
+
+### Descargar CV en Inicio
+- Adaptación de Uiverse.io (nazar-gavrylyk): contracción a círculo, giro, cuadrado, relleno y punto orbital; regreso a “Descargar CV” en 2 s. GSAP controla la secuencia.
+- La descarga nativa comienza con el clic, sin esperar la animación ni simular porcentaje/confirmación de guardado. Se puede repetir. Movimiento reducido conserva el enlace estático; cleanup al desmontar o cambiar la preferencia.
+- Contenedor de tamaño reservado, centrado 18 px sobre el navbar; colores del navbar y acento azul compartido.

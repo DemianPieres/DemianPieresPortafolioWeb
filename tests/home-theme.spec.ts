@@ -43,7 +43,7 @@ for (const width of [375, 390, 768, 1024, 1440]) {
   });
 }
 
-test("preferencia persistente, navegación y aislamiento de otras rutas", async ({ page }) => {
+test("preferencia global persistente y navegación", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   const toggle = page.getByRole("button", { name: "Modo oscuro" });
@@ -52,8 +52,8 @@ test("preferencia persistente, navegación y aislamiento de otras rutas", async 
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator(".home .page-shell")).toHaveCSS("background-color", "rgb(0, 0, 0)");
   await page.getByRole("link", { name: "Proyectos", exact: true }).click();
-  await expect(page.locator(".page-shell")).toHaveCSS("background-color", "rgb(255, 255, 255)");
-  await expect(toggle).toHaveCount(0);
+  await expect(page.locator(".page-shell")).toHaveCSS("background-color", "rgb(0, 0, 0)");
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("link", { name: "Inicio", exact: true }).click();
   await expect(toggle).toHaveAttribute("aria-pressed", "true");
   await toggle.click();

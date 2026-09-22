@@ -1,0 +1,17 @@
+/* Adapted from Uiverse.io by nazar-gavrylyk; scoped to avoid shell collisions. */
+.cv-download-slot { width: 196px; height: 59px; display: flex; justify-content: center; flex-shrink: 0; }
+.cv-download {
+  position: relative; display: flex; align-items: center; width: 196px; height: 59px;
+  padding: 5px; border: 2px solid var(--color-accent); border-radius: 50px;
+  background: var(--color-nav); color: var(--home-nav-fg); font-size: 16px;
+  cursor: pointer; touch-action: manipulation; flex-shrink: 0;
+}
+.cv-download__title { position: absolute; right: 15px; white-space: nowrap; }
+.cv-download__circle { position: relative; display: grid; place-items: center; width: 45px; height: 45px; border-radius: 50%; background: var(--color-accent); color: #fff; overflow: hidden; flex-shrink: 0; }
+.cv-download__circle svg { position: relative; width: 28px; height: 28px; }
+.cv-download__square { position: absolute; width: 15px; height: 15px; border-radius: 2px; background: #fff; opacity: 0; }
+.cv-download__fill { position: absolute; inset: 0; background: #3333a8; transform: scaleY(0); transform-origin: bottom; }
+.cv-download__orbit { position: absolute; width: 55px; height: 55px; left: -1px; top: 0; opacity: 0; pointer-events: none; }
+.cv-download__orbit > span { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--color-fg); left: 24px; top: -4px; }
+.cv-download:focus-visible { outline-offset: 5px; }
+@media (hover: hover) { .cv-download:hover { border-color: var(--color-fg); } }

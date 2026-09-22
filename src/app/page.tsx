@@ -6,14 +6,14 @@ import { Container } from "@/components/container";
 import { PageShell } from "@/components/page-shell";
 import { HomeMotion } from "@/components/home/home-motion";
 import { FeaturedProjects } from "@/components/home/featured-projects";
-import { ThemeToggle } from "@/components/home/theme-toggle";
 import { ParticleName } from "@/components/home/particle-name";
+import { DownloadCV } from "@/components/home/download-cv";
 import "./home.css";
 
 export default function Home() {
   return (
     <HomeMotion>
-      <PageShell portrait header={<><div className="home-portrait-frame"><Image className="portrait" src={assets.portrait} alt="Retrato de Demian Pieres en blanco y negro" sizes="(max-width: 767px) 1300px, 100vw" preload /></div><ParticleName /><ThemeToggle /></>}>
+      <PageShell portrait beforeNav={<DownloadCV />} header={<><div className="home-portrait-frame"><Image className="portrait" src={assets.portrait} alt="Retrato de Demian Pieres en blanco y negro" sizes="(max-width: 767px) 1300px, 100vw" preload /></div><ParticleName /></>}>
         <Container className="home-intro">
           <h1 data-home-reveal>Hola, soy Demian Pieres, tengo 22 años y soy Desarrollador de Software, graduado del Instituto Santo Domingo de Córdoba Capital.<br /> Vivo en Córdoba Capital y actualmente me dedico al desarrollo de software a medida, creando soluciones adaptadas a las necesidades de cada proyecto. Además, trabajo como Soporte IT en AMX Argentina, combinando desarrollo y tecnología en mi experiencia profesional. </h1>
           <div className="home-intro-aside">

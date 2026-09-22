@@ -13,7 +13,7 @@ npm run dev
 
 Abrir http://localhost:3000.
 
-Inicio incluye un selector claro/oscuro arriba a la derecha del retrato. Guarda la elección en el navegador, invierte la paleta neutra de Home y respeta movimiento reducido. El retrato, los logos de marca y el acento azul conservan sus colores.
+Todas las rutas, incluida la página 404, incluyen un selector claro/oscuro arriba a la derecha. Guarda la elección en el navegador e invierte la paleta neutra de todo el sitio. Cada cambio utiliza Pixel Swap (React Bits), adaptado con GSAP y View Transitions: cuadrados aleatorios revelan el tema entrante en 1.4 s. Con movimiento reducido o sin soporte de View Transitions, el cambio es inmediato. El retrato, los logos de marca y el acento azul conservan sus colores.
 
 El icono solicitado se instaló como componente local con `npx shadcn@latest add @icons0/icon-park-outline/dark-mode`. `components.json` configura ese registro; no se agregó una dependencia de UI en ejecución.
 
@@ -50,3 +50,5 @@ Editar `src/data/profile.ts`, `projects.ts`, `skills.ts`, `education.ts` y `expe
 Compatible con el preset Next.js de Vercel, raíz del proyecto actual, build `npm run build`. No requiere variables de entorno ni servicios externos. No se realizó un deploy. `next/font` descarga Geist durante el build y lo sirve localmente en ejecución.
 
 Configuración basada en la [instalación oficial de Next.js](https://nextjs.org/docs/app/getting-started/installation) y la [integración oficial GSAP/React](https://github.com/greensock/react).
+
+Inicio incluye **Descargar CV**, centrado sobre el navbar. Descarga el original `docs/DemianPieres.pdf` mediante `/cv`; para actualizar el CV basta reemplazar ese archivo. El botón adapta la referencia de Uiverse.io de nazar-gavrylyk con CSS local y GSAP, sin styled-components.

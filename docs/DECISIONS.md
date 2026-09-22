@@ -110,3 +110,19 @@ Fase 2: Inicio completo; Fase 3: masonry de Skills; Fases 4–6: Projects/About/
 - Se añade fallback HTML visible hasta el primer dibujo y sin JavaScript/canvas; se conserva el texto alternativo del componente. Se pausa requestAnimationFrame con IntersectionObserver y visibilidad de pestaña; movimiento reducido produce un dibujo estático. Cleanup invalida las tareas de fuentes y elimina observers, listeners y frames pendientes.
 - GSAP continúa como motor principal de las animaciones existentes; el canvas de React Bits es una integración puntual solicitada, sin instalar otro framework de motion.
 - Validación: lint, build, typecheck y `git diff --check` correctos; 21 pruebas Playwright, incluyendo dispersión/reagrupación, pausa de frames fuera de pantalla y al activar movimiento reducido, cambio de color real del canvas, resize y fallback sin JavaScript. Alineación con el botón y ausencia de overflow verificadas en 375/390/768/1024/1440 px. Revisión visual de los cinco anchos y de la dispersión con cursor; capturas `artifacts/screenshots/particle-name-*.png` y `home-dark-*.png`.
+
+
+## Tema global con Pixel Swap
+- Solicitud posterior a Fase 2: el selector y la preferencia se comparten en Inicio, Skills, Projects, About, Resume y 404. Esto sustituye el alcance exclusivo de Inicio descrito arriba; no desarrolla las pantallas pendientes de Fase 3.
+- Se conserva la clave localStorage y el atributo `data-home-theme` para mantener las preferencias existentes. `theme.css` centraliza los tokens y el botón se renderiza desde PageShell; 404 lo incorpora también.
+- Se instaló `@react-bits/PixelSwap-JS-CSS` mediante shadcn. El registro no declara dependencias. La adaptación conserva la matemática visual de React Bits pero usa dos capturas nativas y una máscara de hasta 220 cuadrados, animada con GSAP, evitando cientos de clones de toda la aplicación y de sus canvas.
+- La página sigue siendo HTML accesible e interactivo; la captura solo existe durante el cambio. El tema final se aplica también fuera del viewport, y fotos/logos mantienen sus colores.
+- Movimiento reducido y navegadores sin View Transitions reciben el cambio inmediato. Se cancela la captura al navegar, desplazar, redimensionar u ocultar la pestaña.
+- Validación: lint, typecheck, build y 27 pruebas Playwright aprobadas. Axe revisa ambos temas en las cinco rutas y 404; responsive en 375/390/768/1024/1440 px. Mosaico intermedio revisado visualmente en 390 y 1440 px; se cubren persistencia, clics rápidos, navegación, resize, movimiento reducido y API ausente/fallida. Capturas en `artifacts/screenshots/pixel-swap-*.png`.
+
+## Descarga de CV en Inicio
+- Se incorpora el PDF real aportado por el usuario, `docs/DemianPieres.pdf`, sin extraer ni modificar sus datos personales.
+- `/cv` sirve ese mismo archivo con Content-Type PDF y Content-Disposition attachment. Next incluye el original en el tracing de esa ruta para el despliegue; no se mantiene una segunda copia.
+- Botón/enlace exclusivo de Inicio, mediante el slot opcional `beforeNav` del shell, centrado encima del navbar. En tablet (768–1100 px), el conjunto pasa debajo del retrato para no cubrir el rostro; desktop y móvil conservan el navbar sobre la foto. Referencia de Uiverse.io por nazar-gavrylyk, adaptada con CSS aislado y GSAP; no requiere styled-components.
+- Se sustituye el checkbox decorativo por un enlace de descarga accesible, operativo por teclado y sin JavaScript. La animación no retrasa la descarga ni afirma que se completó: el navegador gestiona el guardado.
+- Validación: lint, build, typecheck y suite de 34 pruebas aprobados; siete pruebas de CV repetidas tras el ajuste tablet. Descarga comparada byte por byte con el PDF original, teclado, repetición, movimiento reducido, ausencia de JavaScript y ambos temas en 375/390/768/1024/1440 px. Revisión visual de capturas y comprobación del PDF en el tracing del build.

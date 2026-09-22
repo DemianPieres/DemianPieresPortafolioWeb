@@ -1,0 +1,55 @@
+.page-shell {
+  --color-bg: #fff;
+  --color-muted: #666;
+  --color-line: #8d8d8d;
+  --color-fg: #000;
+  --home-nav-fg: #d5d5d5;
+  --home-nav-active-fg: #111;
+  --home-nav-hover: #3e3e3c;
+  --home-nav-hover-fg: #fff;
+  --home-nav-active-hover: #fff;
+  --home-nav-focus: #fff;
+  --home-cover-inverse-muted: #aaa;
+  color-scheme: light;
+}
+html[data-home-theme="dark"] .page-shell {
+  --color-bg: #000;
+  --color-fg: #fff;
+  --color-muted: #aaa;
+  --color-line: #737373;
+  --color-project-placeholder: #151515;
+  --color-nav: #fff;
+  --color-nav-button: #ededed;
+  --color-nav-active: #111;
+  --home-nav-fg: #222;
+  --home-nav-active-fg: #fff;
+  --home-nav-hover: #ddd;
+  --home-nav-hover-fg: #000;
+  --home-nav-active-hover: #000;
+  --home-nav-focus: #111;
+  --home-cover-inverse-muted: #666;
+  color-scheme: dark;
+}
+.navbar { color: var(--home-nav-fg); }
+.nav-link.is-active { color: var(--home-nav-active-fg); }
+.nav-link[aria-current="page"]::after { background: var(--home-nav-focus); }
+.nav-link:focus-visible { outline-color: var(--home-nav-focus); }
+.nav-tooltip { background: var(--color-bg); color: var(--color-fg); border-color: var(--color-line); }
+html[data-home-theme="dark"] .nav-asset--github { filter: invert(1); }
+.theme-toggle {
+  position: absolute; z-index: 11; top: max(24px, env(safe-area-inset-top)); right: var(--gutter);
+  display: none; align-items: center; justify-content: center; width: 52px; height: 52px;
+  padding: 0; border: 1px solid var(--color-bg); border-radius: 50%;
+  background: var(--color-fg); color: var(--color-bg); cursor: pointer; touch-action: manipulation;
+}
+html[data-home-theme] .theme-toggle { display: flex; }
+.theme-toggle svg { width: 24px; height: 24px; }
+.theme-toggle-ripple { position: absolute; inset: -1px; border: 1px solid currentColor; border-radius: inherit; opacity: 0; pointer-events: none; }
+
+html[data-home-theme="light"] .page-shell { --color-bg: #fff; --color-fg: #000; --color-muted: #666; --color-line: #8d8d8d; }
+html[data-home-theme="dark"] { --color-bg: #000; --color-fg: #fff; }
+.title-header > .eyebrow { padding-right: 76px; min-height: 52px; }
+@media (hover: hover) {
+  .nav-link:hover { background: var(--home-nav-hover); color: var(--home-nav-hover-fg); }
+  .nav-link.is-active:hover { background: var(--home-nav-active-hover); color: var(--home-nav-active-fg); }
+}

@@ -1,57 +1,5 @@
 /* Inicio (1).png: composición propia de Home; el shell compartido se conserva. */
 .home { --color-project-placeholder: #f1f1ef; }
-.home .page-shell {
-  --color-fg: #000;
-  --home-nav-fg: #d5d5d5;
-  --home-nav-active-fg: #111;
-  --home-nav-hover: #3e3e3c;
-  --home-nav-hover-fg: #fff;
-  --home-nav-active-hover: #fff;
-  --home-nav-focus: #fff;
-  --home-cover-inverse-muted: #aaa;
-  color-scheme: light;
-}
-html[data-home-theme="dark"] .home .page-shell {
-  --color-bg: #000;
-  --color-fg: #fff;
-  --color-muted: #aaa;
-  --color-line: #737373;
-  --color-project-placeholder: #151515;
-  --color-nav: #fff;
-  --color-nav-button: #ededed;
-  --color-nav-active: #111;
-  --home-nav-fg: #222;
-  --home-nav-active-fg: #fff;
-  --home-nav-hover: #ddd;
-  --home-nav-hover-fg: #000;
-  --home-nav-active-hover: #000;
-  --home-nav-focus: #111;
-  --home-cover-inverse-muted: #666;
-  color-scheme: dark;
-}
-.home .navbar { color: var(--home-nav-fg); }
-.home .nav-link.is-active { color: var(--home-nav-active-fg); }
-.home .nav-link[aria-current="page"]::after { background: var(--home-nav-focus); }
-.home .nav-link:focus-visible { outline-color: var(--home-nav-focus); }
-.home .nav-tooltip { background: var(--color-bg); color: var(--color-fg); border-color: var(--color-line); }
-html[data-home-theme="dark"] .home .nav-asset--github { filter: invert(1); }
-.theme-toggle {
-  position: absolute; z-index: 11; top: max(24px, env(safe-area-inset-top)); right: var(--gutter);
-  display: none; align-items: center; justify-content: center; width: 52px; height: 52px;
-  padding: 0; border: 1px solid var(--color-bg); border-radius: 50%;
-  background: var(--color-fg); color: var(--color-bg); cursor: pointer; touch-action: manipulation;
-}
-html[data-home-theme] .home .theme-toggle { display: flex; }
-.theme-toggle svg { width: 24px; height: 24px; }
-.theme-toggle-ripple { position: absolute; inset: -1px; border: 1px solid currentColor; border-radius: inherit; opacity: 0; pointer-events: none; }
-@media (prefers-reduced-motion: no-preference) {
-  .home .page-shell, .home .navbar, .home .nav-link, .home .nav-tooltip,
-  .home .project-cover, .home .project-cover-placeholder, .home .project-status,
-  .home .home-intro-aside p, .home .contact-details span, .home .contact-rule,
-  .home .editorial-footer, .home .footer-back, .home .theme-toggle {
-    transition: background-color .4s ease, color .4s ease, border-color .4s ease;
-  }
-}
 .home-portrait-frame { overflow: clip; }
 .home .page-header--portrait { overflow: clip; }
 .home-brand {
@@ -126,4 +74,9 @@ html[data-home-theme="dark"] .home-brand { filter: drop-shadow(0 1px 1px #000); 
   .project-number { font-size: 44px; }
   .project-status { bottom: 12px; font-size: 11px; }
   .home-arrow { width: 26px; height: 26px; }
+}
+
+.home .page-header--portrait .nav-position { flex-direction: column; align-items: center; gap: 18px; }
+@media (min-width: 768px) and (max-width: 1100px) {
+  .home .page-header--portrait .nav-position { position: relative; padding: 18px 12px 24px; }
 }

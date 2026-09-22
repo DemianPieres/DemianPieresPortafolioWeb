@@ -15,6 +15,11 @@ export function getServerHomeTheme(): HomeTheme {
 
 export function toggleHomeTheme() {
   const next = getHomeTheme() === "dark" ? "light" : "dark";
+  const request = new CustomEvent("theme-swap-request", { detail: next, cancelable: true });
+  if (window.dispatchEvent(request)) applyHomeTheme(next);
+}
+
+export function applyHomeTheme(next: HomeTheme) {
   document.documentElement.dataset.homeTheme = next;
   try { localStorage.setItem(HOME_THEME_KEY, next); } catch { /* Sigue funcionando sin almacenamiento. */ }
   window.dispatchEvent(new Event(themeEvent));

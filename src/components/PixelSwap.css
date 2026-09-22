@@ -1,0 +1,12 @@
+/* PixelSwap applied to a single pair of document snapshots. */
+html[data-pixel-swap]::view-transition { pointer-events: none; }
+html[data-pixel-swap]::view-transition-group(root) { animation: pixel-swap-hold var(--pixel-swap-duration) linear both; }
+html[data-pixel-swap]::view-transition-old(root),
+html[data-pixel-swap]::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+html[data-pixel-swap]::view-transition-new(root) {
+  mask-image: var(--pixel-swap-mask);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+html[data-pixel-swap] *, html[data-pixel-swap] *::before, html[data-pixel-swap] *::after { transition: none !important; }
+@keyframes pixel-swap-hold { from { opacity: 1; } to { opacity: 1; } }
