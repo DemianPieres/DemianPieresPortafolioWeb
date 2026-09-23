@@ -6,7 +6,10 @@ test("Inicio identifica los borradores y ofrece destinos reales", async ({ page 
   const cards = page.locator(".project-card");
   await expect(cards).toHaveCount(4);
   await expect(page.locator(".project-status")).toHaveText(Array(4).fill("Borrador · Por confirmar"));
-  await expect(page.getByText("Portada pendiente", { exact: true })).toHaveCount(4);
+  await expect(page.getByText("Portada pendiente", { exact: true })).toHaveCount(3);
+  await expect(cards.first().getByRole("heading")).toHaveText("eCOMERCE-Web inteligente");
+  await expect(cards.first().getByRole("img")).toHaveAttribute("alt", "Vista de eCOMERCE-Web inteligente");
+  await expect.poll(() => cards.first().locator("img").evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
   await expect(cards.locator("a")).toHaveCount(0);
   await expect(page.locator(".home-intro a")).toHaveAttribute("href", "/about");
   await expect(page.locator(".featured-heading a")).toHaveAttribute("href", "https://github.com/DemianPieres");

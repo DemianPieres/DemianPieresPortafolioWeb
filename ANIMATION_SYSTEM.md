@@ -91,3 +91,9 @@ Si una animación llama más la atención que el contenido durante demasiado tie
 - Adaptación de Uiverse.io (nazar-gavrylyk): contracción a círculo, giro, cuadrado, relleno y punto orbital; regreso a “Descargar CV” en 2 s. GSAP controla la secuencia.
 - La descarga nativa comienza con el clic, sin esperar la animación ni simular porcentaje/confirmación de guardado. Se puede repetir. Movimiento reducido conserva el enlace estático; cleanup al desmontar o cambiar la preferencia.
 - Contenedor de tamaño reservado, centrado 18 px sobre el navbar; colores del navbar y acento azul compartido.
+
+
+### Portadas reales de proyectos en Inicio
+- Conservan la entrada por scroll de las tarjetas. Solo con puntero fino, hover y movimiento permitido: elevación de 6 px, inclinación máxima de 2° por eje, zoom de 1.015 y reflejo tenue; GSAP controla el movimiento y el regreso.
+- Sombra estática adaptada a claro/oscuro. Los borradores sin portada mantienen su tratamiento original.
+- Cleanup explícito de listeners/tweens al desmontar o cambiar movimiento reducido; sin inclinación por interacción táctil.

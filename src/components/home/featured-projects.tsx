@@ -23,9 +23,9 @@ export function FeaturedProjects() {
 
             return (
               <article className="project-card" key={project.slug} aria-labelledby={`project-${project.slug}`}>
-                <div className="project-cover">
+                <div className={project.coverImage ? "project-cover project-cover--image" : "project-cover"}>
                   {project.coverImage ? (
-                    <Image src={project.coverImage} alt={`Vista de ${project.title}`} fill sizes="(max-width: 767px) 90vw, (max-width: 1536px) 43vw, 645px" />
+                    <Image src={project.coverImage} alt={`Vista de ${project.title}`} fill quality={95} sizes="(max-width: 767px) 90vw, (max-width: 1536px) 43vw, 645px" />
                   ) : (
                     <div className="project-cover-placeholder">
                       <span className="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>

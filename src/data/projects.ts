@@ -1,3 +1,5 @@
+import ecommerceCover from "../../docs/PortadaEcomerce.png";
+
 export interface Project {
   slug: string;
   title: string;
@@ -13,15 +15,15 @@ export interface Project {
   status: "draft" | "published";
 }
 
-// Seeds visuales del PROJECT_BRIEF: no presentar como trabajos confirmados.
-// TODO: confirmar autoría y completar contenido, portadas y enlaces.
+// Primer título y portada aportados por el usuario; los demás son seeds del brief.
+// TODO: completar los datos y enlaces antes de publicar los proyectos.
 export const projects: Project[] = [
-  ["learnlogicify", "Learnlogicify Landing Page"],
+  ["ecomerce-web-inteligente", "eCOMERCE-Web inteligente"],
   ["winzee", "Winzee Web Chat application"],
   ["chatgpt-clone", "ChatGPT clone"],
   ["gemini-clone", "Gemini Clone"],
 ].map(([slug, title]) => ({
-  slug, title, shortDescription: null, longDescription: null, coverImage: null,
+  slug, title, shortDescription: null, longDescription: null, coverImage: slug === "ecomerce-web-inteligente" ? ecommerceCover.src : null,
   gallery: [], technologies: [], featured: true, liveUrl: null,
   repositoryUrl: null, year: null, status: "draft",
 }));

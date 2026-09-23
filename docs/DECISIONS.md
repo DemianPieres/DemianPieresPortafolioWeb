@@ -126,3 +126,13 @@ Fase 2: Inicio completo; Fase 3: masonry de Skills; Fases 4–6: Projects/About/
 - Botón/enlace exclusivo de Inicio, mediante el slot opcional `beforeNav` del shell, centrado encima del navbar. En tablet (768–1100 px), el conjunto pasa debajo del retrato para no cubrir el rostro; desktop y móvil conservan el navbar sobre la foto. Referencia de Uiverse.io por nazar-gavrylyk, adaptada con CSS aislado y GSAP; no requiere styled-components.
 - Se sustituye el checkbox decorativo por un enlace de descarga accesible, operativo por teclado y sin JavaScript. La animación no retrasa la descarga ni afirma que se completó: el navegador gestiona el guardado.
 - Validación: lint, build, typecheck y suite de 34 pruebas aprobados; siete pruebas de CV repetidas tras el ajuste tablet. Descarga comparada byte por byte con el PDF original, teclado, repetición, movimiento reducido, ausencia de JavaScript y ambos temas en 375/390/768/1024/1440 px. Revisión visual de capturas y comprobación del PDF en el tracing del build.
+
+## Primera portada real de Inicio
+- El usuario reemplaza Learnlogicify por **eCOMERCE-Web inteligente** y aporta `docs/PortadaEcomerce.png`. Se importa el asset original desde el modelo de proyectos y se muestra con next/image. Quedan tres portadas pendientes.
+- No se añaden enlaces ni datos del proyecto que aún no fueron proporcionados.
+
+
+## Acabado de la portada eCOMERCE
+- Se eleva la calidad de next/image a 95 para las portadas reales, conservando imágenes responsive y lazy loading. El original no se modifica ni se genera detalle nuevo: los textos pequeños del diseño siguen sujetos a la resolución de la imagen y al tamaño de la tarjeta.
+- Sombra suave, reflejo y hover GSAP sobre el contenedor de la portada, separado del reveal por scroll del artículo para evitar conflictos. Sin nuevas dependencias; respeta movimiento reducido y dispositivos táctiles.
+- Validación: build, lint y typecheck; 12 pruebas existentes de Inicio/tema y dos pruebas específicas de portada aprobadas (estas últimas repetidas tras el ajuste final de movimiento reducido). Revisión de capturas desktop en ambos temas y móvil; se verifica calidad 95, hover reversible y ausencia de inclinación táctil.

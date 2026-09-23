@@ -52,6 +52,45 @@ export function HomeMotion({ children }: { children: ReactNode }) {
         });
       });
     });
+    media.add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
+      const cleanups: (() => void)[] = [];
+      root.current?.querySelectorAll<HTMLElement>(".project-cover--image").forEach((cover) => {
+        const image = cover.querySelector("img");
+        if (!image) return;
+        gsap.set(cover, { transformPerspective: 900 });
+        const enter = (event: PointerEvent) => {
+          if (event.pointerType === "touch" || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          gsap.to(cover, { y: -6, "--cover-glow": 0.24, duration: 0.4, overwrite: "auto" });
+          gsap.to(image, { scale: 1.015, duration: 0.5, ease: "power2.out", overwrite: true });
+        };
+        const move = (event: PointerEvent) => {
+          if (event.pointerType === "touch" || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          const box = cover.getBoundingClientRect();
+          const x = (event.clientX - box.left) / box.width - 0.5;
+          const y = (event.clientY - box.top) / box.height - 0.5;
+          gsap.to(cover, { rotationX: -y * 4, rotationY: x * 4, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+        };
+        const leave = () => {
+          gsap.to(cover, { y: 0, rotationX: 0, rotationY: 0, "--cover-glow": 0, duration: 0.5, ease: "power3.out", overwrite: true });
+          gsap.to(image, { scale: 1, duration: 0.5, ease: "power3.out", overwrite: true });
+        };
+        cover.addEventListener("pointerenter", enter);
+        cover.addEventListener("pointermove", move);
+        cover.addEventListener("pointerleave", leave);
+        cover.addEventListener("pointercancel", leave);
+        cleanups.push(() => {
+          cover.removeEventListener("pointerenter", enter);
+          cover.removeEventListener("pointermove", move);
+          cover.removeEventListener("pointerleave", leave);
+          cover.removeEventListener("pointercancel", leave);
+          gsap.killTweensOf([cover, image]);
+          cover.style.removeProperty("transform");
+          cover.style.removeProperty("--cover-glow");
+          image.style.removeProperty("transform");
+        });
+      });
+      return () => cleanups.forEach((cleanup) => cleanup());
+    });
     return () => media.revert();
   }, { scope: root });
 
