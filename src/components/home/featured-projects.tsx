@@ -17,7 +17,7 @@ export function FeaturedProjects() {
         </div>
         <div className="project-grid">
           {featured.map((project, index) => {
-            // Los borradores no enlazan a demos ni se presentan como trabajos confirmados.
+            // Solo enlazar proyectos publicados con destinos reales.
             const destination = project.status === "published" ? project.liveUrl ?? project.repositoryUrl : null;
             const title = <><ArrowRight className="home-arrow" aria-hidden="true" /><span>{project.title}</span></>;
 
@@ -32,7 +32,6 @@ export function FeaturedProjects() {
                       <p>Portada pendiente</p>
                     </div>
                   )}
-                  {project.status === "draft" && <span className="project-status">Borrador · Por confirmar</span>}
                 </div>
                 <h3 id={`project-${project.slug}`} className="project-title">
                   {destination ? <a href={destination} target="_blank" rel="noopener noreferrer">{title}<span className="sr-only"> (se abre en otra pestaña)</span></a> : <span>{title}</span>}

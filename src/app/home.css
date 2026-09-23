@@ -36,8 +36,7 @@ html[data-home-theme="dark"] .home-brand { filter: drop-shadow(0 1px 1px #000); 
 .project-cover > img { object-fit: cover; }
 .project-cover-placeholder { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 54px 20px; color: var(--color-muted); }
 .project-number { font-size: clamp(40px, 5vw, 80px); line-height: 1; letter-spacing: -.06em; font-weight: 300; }
-.project-cover-placeholder p, .project-status { font-family: var(--font-geist-mono), monospace; font-size: 12px; }
-.project-status { position: absolute; bottom: 18px; left: 20px; right: 20px; color: var(--color-muted); text-align: center; }
+.project-cover-placeholder p { font-family: var(--font-geist-mono), monospace; font-size: 12px; }
 .project-title { margin: 22px 10px 0; font-size: clamp(20px, 2.12vw, 34px); font-weight: 400; line-height: 1.3; letter-spacing: -.025em; }
 .project-title > a, .project-title > span { display: flex; align-items: center; gap: 20px; min-height: 44px; }
 .project-title > a .home-arrow { transition: transform .25s ease; }
@@ -71,17 +70,12 @@ html[data-home-theme="dark"] .home-brand { filter: drop-shadow(0 1px 1px #000); 
   .project-title { margin-top: 14px; }
   .project-cover-placeholder { padding-block: 44px; }
   .project-number { font-size: 44px; }
-  .project-status { bottom: 12px; font-size: 11px; }
   .home-arrow { width: 26px; height: 26px; }
 }
 
 .home .page-header--portrait .nav-position { flex-direction: column; align-items: center; gap: 18px; }
 @media (min-width: 768px) and (max-width: 1100px) {
   .home .page-header--portrait .nav-position { position: relative; padding: 18px 12px 24px; }
-}
-.project-cover:has(> img) .project-status {
-  width: fit-content; max-width: calc(100% - 40px); margin-inline: auto;
-  padding: 4px 10px; border-radius: 999px; background: var(--color-bg);
 }
 
 /* Depth only on real artwork; placeholders retain their original treatment. */
@@ -97,7 +91,6 @@ html[data-home-theme="dark"] .home-brand { filter: drop-shadow(0 1px 1px #000); 
 html[data-home-theme="dark"] .project-cover--image {
   box-shadow: 0 0 0 1px rgb(255 255 255 / 0.12), 0 14px 36px rgb(0 0 0 / 0.45), 0 20px 48px -30px rgb(85 180 111 / 0.25);
 }
-.project-cover--image .project-status { z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .project-cover--image, .project-cover--image > img { transform: none !important; }

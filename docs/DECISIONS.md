@@ -136,3 +136,7 @@ Fase 2: Inicio completo; Fase 3: masonry de Skills; Fases 4–6: Projects/About/
 - Se eleva la calidad de next/image a 95 para las portadas reales, conservando imágenes responsive y lazy loading. El original no se modifica ni se genera detalle nuevo: los textos pequeños del diseño siguen sujetos a la resolución de la imagen y al tamaño de la tarjeta.
 - Sombra suave, reflejo y hover GSAP sobre el contenedor de la portada, separado del reveal por scroll del artículo para evitar conflictos. Sin nuevas dependencias; respeta movimiento reducido y dispositivos táctiles.
 - Validación: build, lint y typecheck; 12 pruebas existentes de Inicio/tema y dos pruebas específicas de portada aprobadas (estas últimas repetidas tras el ajuste final de movimiento reducido). Revisión de capturas desktop en ambos temas y móvil; se verifica calidad 95, hover reversible y ausencia de inclinación táctil.
+
+## Segunda portada real y tarjetas sin etiquetas
+- Se reemplaza Winzee por **App Android para complejo de fútbol**, con `docs/LaSextaapp.png`. Reutiliza calidad 95, sombras, reflejo y animaciones GSAP de las portadas reales; quedan dos portadas pendientes.
+- Por solicitud del usuario se eliminan todas las etiquetas visibles “Borrador · Por confirmar” de Inicio y su CSS. Se conserva el estado editorial interno y no se inventan enlaces de proyectos.

@@ -1,15 +1,17 @@
 import { test, expect } from "@playwright/test";
 
-test("Inicio identifica los borradores y ofrece destinos reales", async ({ page }) => {
+test("Inicio muestra las portadas reales y ofrece destinos válidos", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   const cards = page.locator(".project-card");
   await expect(cards).toHaveCount(4);
-  await expect(page.locator(".project-status")).toHaveText(Array(4).fill("Borrador · Por confirmar"));
-  await expect(page.getByText("Portada pendiente", { exact: true })).toHaveCount(3);
+  await expect(page.getByText("Borrador · Por confirmar", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("Portada pendiente", { exact: true })).toHaveCount(2);
   await expect(cards.first().getByRole("heading")).toHaveText("eCOMERCE-Web inteligente");
   await expect(cards.first().getByRole("img")).toHaveAttribute("alt", "Vista de eCOMERCE-Web inteligente");
   await expect.poll(() => cards.first().locator("img").evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+  await expect(cards.nth(1).getByRole("heading")).toHaveText("App Android para complejo de fútbol");
+  await expect.poll(() => cards.nth(1).locator("img").evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
   await expect(cards.locator("a")).toHaveCount(0);
   await expect(page.locator(".home-intro a")).toHaveAttribute("href", "/about");
   await expect(page.locator(".featured-heading a")).toHaveAttribute("href", "https://github.com/DemianPieres");
