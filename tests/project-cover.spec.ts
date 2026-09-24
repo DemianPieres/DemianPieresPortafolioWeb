@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-for (const index of [0, 1]) {
+for (const index of [0, 1, 2, 3]) {
   test(`portada ${index + 1}: calidad, hover reversible y movimiento reducido`, async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto("/");

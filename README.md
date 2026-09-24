@@ -1,6 +1,6 @@
 # Portfolio de Demian Pieres
 
-Implementadas **Fases 0, 1 y 2** de `IMPLEMENTATION_PLAN.md`. Inicio incluye retrato, presentación, proyectos destacados responsive y animaciones GSAP, junto con el contacto y cierre compartidos. Las dos primeras tarjetas tienen portadas reales; las dos restantes conservan placeholders explícitos. Los estados editoriales permanecen en los datos, sin etiquetas flotantes en las tarjetas. Las otras cuatro rutas conservan sus contenidos provisionales; el siguiente trabajo es **Fase 3 — Skills**.
+Implementadas **Fases 0, 1 y 2** de `IMPLEMENTATION_PLAN.md`. Inicio incluye retrato, presentación, proyectos destacados responsive y animaciones GSAP, junto con el contacto y cierre compartidos. Las cuatro tarjetas tienen títulos y portadas reales aportados por el usuario. Los estados editoriales permanecen en los datos, sin etiquetas flotantes en las tarjetas. Las otras cuatro rutas conservan sus contenidos provisionales; el siguiente trabajo es **Fase 3 — Skills**.
 
 ## Desarrollo
 

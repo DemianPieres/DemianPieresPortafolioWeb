@@ -140,3 +140,11 @@ Fase 2: Inicio completo; Fase 3: masonry de Skills; Fases 4–6: Projects/About/
 ## Segunda portada real y tarjetas sin etiquetas
 - Se reemplaza Winzee por **App Android para complejo de fútbol**, con `docs/LaSextaapp.png`. Reutiliza calidad 95, sombras, reflejo y animaciones GSAP de las portadas reales; quedan dos portadas pendientes.
 - Por solicitud del usuario se eliminan todas las etiquetas visibles “Borrador · Por confirmar” de Inicio y su CSS. Se conserva el estado editorial interno y no se inventan enlaces de proyectos.
+
+## Tercera portada real: LeadScraper
+- El usuario reemplaza ChatGPT clone por **Sistema de web scraping para captar clientes potenciales**, con el asset original `docs/LeadScraper.png`. Reutiliza calidad 95, sombras, reflejo y hover GSAP de las otras portadas, con soporte de tema oscuro y movimiento reducido.
+- Queda una portada pendiente. Se mantienen las tarjetas sin etiquetas flotantes y no se añaden enlaces ni datos no proporcionados.
+
+## Cuarta portada real: Economy
+- Gemini Clone se reemplaza por **PWA para gestionar tus finanzas personales**, con el original `docs/Econnomy.png`. Reutiliza calidad 95, sombras, reflejo y hover GSAP compartidos, sin etiquetas flotantes. Las cuatro tarjetas de Inicio ya tienen portadas reales.
+- Se conservan los estados editoriales internos y no se inventan enlaces ni información adicional.
